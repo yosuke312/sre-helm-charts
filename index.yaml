@@ -9,6 +9,6 @@ entries:
     name: foca-webhook
     type: application
     urls:
-    - https://github.com/yosuke312/foca-webhook/foca-webhook-0.1.0.tgz
+    - https://github.com/yosuke312/foca-webhook-chart/foca-webhook-0.1.0.tgz
     version: 0.1.0
 generated: "2023-09-03T23:28:14.040647+09:00"
