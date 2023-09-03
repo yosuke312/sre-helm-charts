@@ -1,0 +1,14 @@
+apiVersion: v1
+entries:
+  foca-webhook:
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2023-09-03T23:28:14.041423+09:00"
+    description: A Helm chart for Kubernetes
+    digest: 11dffeeb0ac4c7047d90140fc4a16e9e0c6b3bab853481785467ece38d1bf6dd
+    name: foca-webhook
+    type: application
+    urls:
+    - https://github.com/yosuke312/foca-webhook/foca-webhook-0.1.0.tgz
+    version: 0.1.0
+generated: "2023-09-03T23:28:14.040647+09:00"
