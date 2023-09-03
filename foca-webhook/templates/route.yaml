@@ -1,0 +1,20 @@
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  annotations:
+    openshift.io/host.generated: "true"
+  labels:
+    app: nginx-unprivileged
+  name: nginx-unprivileged
+spec:
+  host: nginx-unprivileged-sre-tooling.apps-crc.testing
+  port:
+    targetPort: 8080-tcp
+  tls:
+    insecureEdgeTerminationPolicy: Redirect
+    termination: edge
+  to:
+    kind: Service
+    name: nginx-unprivileged
+    weight: 100
+  wildcardPolicy: None
