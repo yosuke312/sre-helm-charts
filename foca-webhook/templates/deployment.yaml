@@ -2,15 +2,16 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    app: nginx-unprivileged
-  name: nginx-unprivileged
+    app: foca-webhook
+  name: foca-webhook
+  namespace: {{ .Values.namespace }}
 spec:
   progressDeadlineSeconds: 600
   replicas: {{ .Values.replicaCount }}
   revisionHistoryLimit: 10
   selector:
     matchLabels:
-      app: nginx-unprivileged
+      app: foca-webhook
   strategy:
     rollingUpdate:
       maxSurge: 25%
@@ -20,13 +21,13 @@ spec:
     metadata:
       creationTimestamp: null
       labels:
-        app: nginx-unprivileged
-        deployment: nginx-unprivileged
+        app: foca-webhook
+        deployment: foca-webhook
     spec:
       containers:
       - image: "{{ .Values.image.repository }}{{ .Values.image.tag }}"
         imagePullPolicy: {{ .Values.image.pullPolicy}}
-        name: nginx-unprivileged
+        name: foca-webhook
         ports:
         - containerPort: 8080
           protocol: TCP

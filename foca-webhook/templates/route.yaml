@@ -4,10 +4,10 @@ metadata:
   annotations:
     openshift.io/host.generated: "true"
   labels:
-    app: nginx-unprivileged
-  name: nginx-unprivileged
+    app: foca-webhook
+  name: foca-webhook
 spec:
-  host: nginx-unprivileged-sre-tooling.apps-crc.testing
+  host: foca-webhook-sre-tooling.apps-crc.testing
   port:
     targetPort: 8080-tcp
   tls:
@@ -15,6 +15,6 @@ spec:
     termination: edge
   to:
     kind: Service
-    name: nginx-unprivileged
+    name: foca-webhook
     weight: 100
   wildcardPolicy: None
