@@ -8,7 +8,7 @@ metadata:
     kingdom: '{{ .Values.kingdom }}'
   name: foca-webhook
 spec:
-  host: foca-webhook-sre-tooling.apps-crc.testing
+  host: foca-webhook-{{ .Values.kingdom }}.apps-crc.testing
   port:
     targetPort: 8080-tcp
   tls:
