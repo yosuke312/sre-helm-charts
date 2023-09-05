@@ -4,7 +4,6 @@ metadata:
   labels:
     app: foca-webhook
   name: foca-webhook
-  namespace: {{ .Values.namespace }}
 spec:
   progressDeadlineSeconds: 600
   replicas: {{ .Values.replicaCount }}
