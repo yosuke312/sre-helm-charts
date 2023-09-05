@@ -5,6 +5,7 @@ metadata:
     openshift.io/host.generated: "true"
   labels:
     app: foca-webhook
+    kingdom: '{{ .Values.kingdom }}'
   name: foca-webhook
 spec:
   host: foca-webhook-sre-tooling.apps-crc.testing

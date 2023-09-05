@@ -3,6 +3,7 @@ kind: Service
 metadata:
   labels:
     app: foca-webhook
+    kingdom: '{{ .Values.kingdom }}'
   name: foca-webhook
 spec:
   internalTrafficPolicy: Cluster
@@ -16,6 +17,7 @@ spec:
     targetPort: 8080
   selector:
     app: foca-webhook
+    kingdom: '{{ .Values.kingdom }}'
     deployment: foca-webhook
   sessionAffinity: None
   type: ClusterIP

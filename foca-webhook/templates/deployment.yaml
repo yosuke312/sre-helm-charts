@@ -3,6 +3,7 @@ kind: Deployment
 metadata:
   labels:
     app: foca-webhook
+    kingdom: '{{ .Values.kingdom }}'
   name: foca-webhook
 spec:
   progressDeadlineSeconds: 600
@@ -11,6 +12,7 @@ spec:
   selector:
     matchLabels:
       app: foca-webhook
+      kingdom: '{{ .Values.kingdom }}'
   strategy:
     rollingUpdate:
       maxSurge: 25%
@@ -21,6 +23,7 @@ spec:
       creationTimestamp: null
       labels:
         app: foca-webhook
+        kingdom: '{{ .Values.kingdom }}'
         deployment: foca-webhook
     spec:
       containers:
