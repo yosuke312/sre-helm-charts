@@ -4,11 +4,11 @@ metadata:
   annotations:
     openshift.io/host.generated: "true"
   labels:
-    app: foca-webhook
-    kingdom: '{{ .Values.kingdom }}'
-  name: foca-webhook
+    app: nginx
+    kingdom: "{{ .Values.kingdom }}"
+  name: nginx
 spec:
-  host: foca-webhook-{{ .Values.kingdom }}.apps-crc.testing
+  host: nginx-{{ .Values.kingdom }}.apps-crc.testing
   port:
     targetPort: 8080-tcp
   tls:
@@ -16,6 +16,6 @@ spec:
     termination: edge
   to:
     kind: Service
-    name: foca-webhook
+    name: nginx
     weight: 100
   wildcardPolicy: None

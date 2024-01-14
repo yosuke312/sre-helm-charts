@@ -3,21 +3,21 @@ kind: Service
 metadata:
   labels:
     app: foca-webhook
-    kingdom: '{{ .Values.kingdom }}'
+    kingdom: "{{ .Values.kingdom }}"
   name: foca-webhook
 spec:
   internalTrafficPolicy: Cluster
   ipFamilies:
-  - IPv4
+    - IPv4
   ipFamilyPolicy: SingleStack
   ports:
-  - name: 8080-tcp
-    port: 8080
-    protocol: TCP
-    targetPort: 8080
+    - name: 8080-tcp
+      port: 8080
+      protocol: TCP
+      targetPort: 8080
   selector:
-    app: foca-webhook
-    kingdom: '{{ .Values.kingdom }}'
-    deployment: foca-webhook
+    app: nginx
+    kingdom: "{{ .Values.kingdom }}"
+    deployment: nginx
   sessionAffinity: None
   type: ClusterIP
