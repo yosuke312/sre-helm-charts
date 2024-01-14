@@ -2,9 +2,9 @@ apiVersion: v1
 kind: Service
 metadata:
   labels:
-    app: foca-webhook
+    app: nginx
     kingdom: "{{ .Values.kingdom }}"
-  name: foca-webhook
+  name: nginx
 spec:
   internalTrafficPolicy: Cluster
   ipFamilies:

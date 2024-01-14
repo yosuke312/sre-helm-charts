@@ -2,17 +2,17 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    app: foca-webhook
-    kingdom: '{{ .Values.kingdom }}'
-  name: foca-webhook
+    app: nginx
+    kingdom: "{{ .Values.kingdom }}"
+  name: nginx
 spec:
   progressDeadlineSeconds: 600
-  replicas: {{ .Values.replicaCount }}
+  replicas: "{{ .Values.replicaCount }}"
   revisionHistoryLimit: 10
   selector:
     matchLabels:
-      app: foca-webhook
-      kingdom: '{{ .Values.kingdom }}'
+      app: nginx
+      kingdom: "{{ .Values.kingdom }}"
   strategy:
     rollingUpdate:
       maxSurge: 25%
@@ -22,20 +22,20 @@ spec:
     metadata:
       creationTimestamp: null
       labels:
-        app: foca-webhook
-        kingdom: '{{ .Values.kingdom }}'
-        deployment: foca-webhook
+        app: nginx
+        kingdom: "{{ .Values.kingdom }}"
+        deployment: nginx
     spec:
       containers:
-      - image: "{{ .Values.image.repository }}{{ .Values.image.tag }}"
-        imagePullPolicy: {{ .Values.image.pullPolicy}}
-        name: foca-webhook
-        ports:
-        - containerPort: 8080
-          protocol: TCP
-        resources: {}
-        terminationMessagePath: /dev/termination-log
-        terminationMessagePolicy: File
+        - image: "{{ .Values.image.repository }}{{ .Values.image.tag }}"
+          imagePullPolicy: "{{ .Values.image.pullPolicy }}"
+          name: nginx
+          ports:
+            - containerPort: 8080
+              protocol: TCP
+          resources: {}
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
       dnsPolicy: ClusterFirst
       restartPolicy: Always
       schedulerName: default-scheduler
